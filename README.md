@@ -1,10 +1,18 @@
+**To start the project, please use:**
+
+``````
+npm start
+``````
+
 ## Bugs:
+
 - **Switching between 'Pending tasks' and 'Completed tasks' will produce duplicated items**
   
+
 The reason for this bug is key for different list element should not be the same. The program use item.content as key while doing map, which would cause to the duplicant of completed element in pending list. 
-  
+
   By adding index into the div part, it would differ each element according to their index, which would not repeat. 
-  
+
   ``````javascript
   this.state.todoList.todoItems.map((item,index) => !item.done ? (
               <div key={index}>
@@ -18,9 +26,9 @@ The reason for this bug is key for different list element should not be the same
                 }}>X</button>
               </div>) : null)
   ``````
+
   
-  
-  
+
 - **Completed items will become pending on reload**
 
   This is because of the missing of save changes to localStorage. By adding saveToLS() function to finishTask(), it would be solved. 
@@ -57,3 +65,6 @@ The reason for this bug is key for different list element should not be the same
 Before modification, the main Javascript code is edited in index.html, which would be hard to maintain in the future. Therefore, I put them into index.js file for better structure. 
 
 At the same time, App component could be seperated to PendingList and CompletedList, which would be easier to reuse and maintain. 
+
+
+
