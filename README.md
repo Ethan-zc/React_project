@@ -1,6 +1,7 @@
 **To start the project, please use:**
 
 ``````
+npm i react-scripts
 npm start
 ``````
 
